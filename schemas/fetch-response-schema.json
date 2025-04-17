@@ -1,0 +1,45 @@
+{
+  "$id": "fetch-response-schema.json",
+  "title": "fetch-response",
+  "description": "A response to a puzzle fetch request",
+  "type": "object",
+  "properties": {
+
+    "success" : {
+      "description": "Did the fetch-command succeed?",
+      "type": "boolean"
+    },
+
+    "error": {
+      "description": "An error encounter fulfilling the fetch-command",
+      "type": "string"
+    },
+
+    "puzzleData": {
+      "description": "The puzzle data",
+      "$ref" : "schemas/puzzle-data-schema.json"
+    }
+
+  },
+
+  "required" : [ "success" ],
+  "if": {
+    "properties": {
+      "success": {
+        "const": true
+      }
+    }
+  },
+  "then": {
+    "required": ["puzzleData"]
+  },
+  "else": {
+    "required": {
+      "required": ["error"]
+    }
+  }
+  
+}
+
+
+
