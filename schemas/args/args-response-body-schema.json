@@ -1,0 +1,9 @@
+{
+  "$id": "schemas/args/args-response-body-schema.json",
+  "title": "args-response-body",
+  "type": "object",
+  "properties": {
+  }
+}
+
+

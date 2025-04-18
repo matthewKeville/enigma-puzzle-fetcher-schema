@@ -1,0 +1,36 @@
+{
+  "$id": "schemas/response-schema.json",
+  "title": "response",
+  "type": "object",
+  "properties": {
+    "body" : {
+      "anyOf" : [
+        { "$ref" : "fetch/fetch-response-body-schema.json" },
+        { "$ref" : "methods/methods-response-body-schema.json" },
+        { "$ref" : "args/args-response-body-schema.json" }
+      ]
+    },
+    "success" : {
+      "type" : "boolean"
+    },
+    "error" : {
+      "$ref" : "error-schema.json"
+    }
+  },
+
+  "required" : ["success"],
+  "if": {
+    "properties": {
+      "success": { "const": true }
+    }
+  },
+  "then": {
+    "required": ["body"]
+  },
+  "else": {
+    "required": ["errorMessage"]
+  }
+  
+}
+
+

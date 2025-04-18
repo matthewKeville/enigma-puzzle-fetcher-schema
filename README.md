@@ -2,23 +2,51 @@
 
 The **Enigma Puzzle Fetcher JSON Schemas** define a standard for how puzzle fetchers interact with the **Enigma** system, ensuring consistent and predictable behavior when integrated as plugins.
 
-## Schemas Overview
-
-### `/schemas/capabilities-command-schema.json`
-Represents a request to inquire about the types of fetch operations a fetcher supports, such as specific commands (e.g., "date" with an ISO date argument, or "today" with no arguments), allowing Enigma to understand the fetcher's available features.
-
-### `/schemas/fetch-command-schema.json`
-Defines the request format for fetching a puzzle from a fetcher, ensuring a consistent structure for puzzle requests across various sources.
-
-### `/schemas/fetch-response-schema.json`
-Specifies the structure of the response to a fetch command, ensuring that puzzle data is returned in a predictable and usable format.
-
-### `/schemas/puzzle-data-schema.json`
-Outlines the format for puzzle data, including grid, clues, and solutions, to ensure proper rendering and interaction within Enigma.
-
 ## Roadmap
 
 A key goal of this project is to eventually replace the `puzzle-data-schema.json` with the **IPUZ schema**. The IPUZ format is designed to standardize crossword puzzle data, allowing fetcher plugins to be used in any application that supports the IPUZ format. This transition will increase flexibility, making puzzle data portable and reusable across different platforms.
 
 For more information on the IPUZ format, visit the [IPUZ Specification](https://www.puzzazz.com/ipuz).
+
+## Contracts
+
+> The Schema defines a mapping of *response* and *request* objects
+
+- The request must conform to the `schemas/request-schema.json`
+- The response must conform to the `schemas/response-schema.json`
+
+### intended object mappings
+
+  Successful requests, will map the following request bodies to response bodies
+
+#### Methods
+
+  `schemas/methods/methods-request-body.json` -> `schemas/methods/methods-response-body-schema.json` 
+
+#### Args Request
+
+  `schemas/args/args-request-body.json` -> `schemas/args/args-response-body.json`
+
+#### Fetch Request
+
+  `schemas/fetch/fetch-request-body.json` -> `schemas/fetch/fetch-response-body.json` 
+
+### Errors
+
+> When Things Go Awry
+
+If the fetcher can't fulfill the request it must reflect that in the response,
+setting *success* to false and detailing the reason for failure with an `schemas/error-schema.json`
+
+```json
+
+# Example Error Response
+
+{
+  "success" : false,
+  "error" : {
+    "code" : "BadArgs",
+    "errorMessage" : "The date argument must be in the format mm/dd/yyyy"
+  }
+}
 

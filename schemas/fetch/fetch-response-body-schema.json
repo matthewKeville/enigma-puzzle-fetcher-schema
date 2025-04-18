@@ -1,0 +1,17 @@
+{
+  "$id": "schemas/fetch/fetch-response-body-schema.json",
+  "title": "fetch-response-body",
+  "type": "object",
+  "properties": {
+    "puzzleData": {
+      "description": "Puzzle data",
+      "$ref" : "../puzzle-data-schema.json"
+    }
+  },
+
+  "required" : [ "puzzleData" ]
+  
+}
+
+
+

@@ -1,0 +1,22 @@
+{
+  "$id": "schemas/fetch/fetch-request-body-schema.json",
+  "title": "fetch-request-body",
+  "type": "object",
+  "properties": {
+    "method": {
+      "description": "The fetching method",
+      "type": "string"
+    },
+    "args": {
+      "description": "Args for the fetching method",
+      "type" : "array",
+      "items" : {
+        "type" : "string"
+      }
+    }
+  },
+  "required" : [ "method" ]
+  
+}
+
+

@@ -1,0 +1,19 @@
+{
+  "$id": "schemas/error-schema.json",
+  "title": "error",
+  "type": "object",
+  "properties": {
+    "code" : {
+      "type" : "string",
+      "enum" : [ "BadRequest", "InvalidArgs", "FetchFailed" ]
+
+    },
+    "errorMessage" : {
+      "type" : "string"
+    }
+  },
+
+  "required" : ["code","errorMessage"]
+}
+
+

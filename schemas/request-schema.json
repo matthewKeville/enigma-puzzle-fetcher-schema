@@ -1,0 +1,21 @@
+{
+  "$id": "schemas/request-schema.json",
+  "title": "request",
+  "type": "object",
+  "properties": {
+    "body" : {
+      "anyOf" : [
+        { "$ref" : "fetch/fetch-request-body-schema.json" },
+        { "$ref" : "args/args-request-body-schema.json" }
+      ]
+    },
+    "requestType" : {
+      "type" : "string",
+      "enum" : [ "fetch", "methods", "args" ]
+    }
+  },
+  "required" : [ "body", "requestType" ]
+  
+}
+
+

@@ -1,0 +1,9 @@
+{
+  "$id": "schemas/methods/methods-response-body-schema.json",
+  "title": "methods-response-body",
+  "type": "object",
+  "properties": {
+  }
+}
+
+

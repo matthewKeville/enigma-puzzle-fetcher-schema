@@ -1,0 +1,15 @@
+{
+  "$id": "schemas/args/args-request-body-schema.json",
+  "title": "args-request-body",
+  "type": "object",
+  "properties": {
+    "method" : {
+      "description" : "Fetching method inquired about",
+      "type" : "string"
+    }
+  },
+
+  "required" : [ "method" ]
+}
+
+

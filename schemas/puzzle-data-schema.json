@@ -1,0 +1,6 @@
+{
+  "$id": "schemas/puzzle-data-schema.json",
+  "title": "puzzle-data",
+  "type": "object",
+  "properties": {}
+}
