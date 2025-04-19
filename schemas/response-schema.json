@@ -28,7 +28,7 @@
     "required": ["body"]
   },
   "else": {
-    "required": ["errorMessage"]
+    "required": ["error"]
   }
   
 }
