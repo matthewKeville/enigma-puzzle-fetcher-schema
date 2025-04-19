@@ -5,7 +5,7 @@
   "properties": {
     "code" : {
       "type" : "string",
-      "enum" : [ "BadRequest", "InvalidArgs", "FetchFailed" ]
+      "enum" : [ "BadRequest", "InvalidArgs", "FetchFailed", "CriticalFailure" ]
 
     },
     "errorMessage" : {
