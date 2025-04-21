@@ -3,7 +3,15 @@
   "title": "methods-response-body",
   "type": "object",
   "properties": {
-  }
+    "methods" : {
+      "description" : "An array of method definitions",
+      "type" : "array",
+      "items" : {
+        "$ref" : "method-schema.json"
+      }
+    }
+  },
+  "required" : ["methods"]
 }
 
 

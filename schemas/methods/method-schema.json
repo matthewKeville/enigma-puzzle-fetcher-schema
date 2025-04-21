@@ -1,0 +1,39 @@
+{
+  "$id": "schemas/methods/method-schema.json",
+  "title": "method-schema",
+  "type": "object",
+  "properties": {
+    "name": {
+      "description": "The method name",
+      "type": "string"
+    },
+    "desc": {
+      "description": "The method description",
+      "type": "string"
+    },
+    "args": {
+      "description": "The method arguments",
+      "type": "array",
+      "items" : {
+        "type" : "object",
+        "properties" : {
+          "name" : {
+            "type": "string"
+          },
+          "desc" : {
+            "type": "string"
+          },
+          "constraints" : {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  },
+  "required" : [ "name", "desc" ]
+}
+
+

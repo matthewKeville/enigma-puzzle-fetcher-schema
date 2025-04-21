@@ -6,12 +6,12 @@
     "body" : {
       "anyOf" : [
         { "$ref" : "fetch/fetch-request-body-schema.json" },
-        { "$ref" : "args/args-request-body-schema.json" }
+        { "$ref" : "methods/methods-request-body-schema.json" }
       ]
     },
     "requestType" : {
       "type" : "string",
-      "enum" : [ "fetch", "methods", "args" ]
+      "enum" : [ "fetch", "methods" ]
     }
   },
   "required" : [ "body", "requestType" ]
