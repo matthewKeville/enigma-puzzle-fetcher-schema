@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "schemas/info/info-response-body-schema.json",
+  "title": "info-response-body",
+  "type": "object",
+  "properties": {
+    "name": {
+      "description": "name of fetcher",
+      "type" : "string"
+    },
+    "description": {
+      "description": "description of fetcher",
+      "type" : "string"
+    },
+    "version": {
+      "description": "version number of fetcher",
+      "type" : "string"
+    }
+  },
+
+  "required" : [ "name", "description" ]
+  
+}
+
+
+

@@ -4,18 +4,31 @@
   "title": "request",
   "type": "object",
   "properties": {
+
     "body" : {
       "anyOf" : [
-        { "$ref" : "fetch/fetch-request-body-schema.json" },
-        { "$ref" : "methods/methods-request-body-schema.json" }
+        { "$ref" : "fetch/fetch-request-body-schema.json" }
       ]
     },
+
     "requestType" : {
       "type" : "string",
-      "enum" : [ "fetch", "methods" ]
+      "enum" : [ "info", "methods", "fetch" ]
     }
+
   },
-  "required" : [ "body", "requestType" ]
+
+  "required" : [ "requestType" ],
+  "if" : {
+
+    "properties": { "requestType": { "const" : "fetch" }}
+
+  },
+  "then" : {
+
+    "required": ["body"]
+
+  }
   
 }
 
