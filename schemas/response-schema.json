@@ -10,6 +10,10 @@
         { "$ref" : "methods/methods-response-body-schema.json" }
       ]
     },
+    "responseType" : {
+      "type" : "string",
+      "enum" : [ "info", "methods", "fetch" ]
+    },
     "success" : {
       "type" : "boolean"
     },
@@ -18,7 +22,7 @@
     }
   },
 
-  "required" : ["success"],
+  "required" : ["success", "responseType" ],
   "if": {
     "properties": {
       "success": { "const": true }
