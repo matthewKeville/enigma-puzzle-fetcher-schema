@@ -3,5 +3,60 @@
   "$id": "schemas/puzzle-data-schema.json",
   "title": "puzzle-data",
   "type": "object",
-  "properties": {}
+  "properties": {
+    "meta" : {
+      "type": "object",
+      "properties": {
+        "plugin": {
+          "type": "string"
+        },
+        "pluginVersion": {
+          "type": "string"
+        },
+        "fetchDate": {
+          "type": "string"
+        }
+      }
+    },
+    "columns" : {
+      "type": "number"
+    },
+    "rows": {
+      "type": "number"
+    },
+    "clues": {
+      "type": "object",
+      "properties": {
+        "x": {
+          "type": "number"
+        },
+        "y": {
+          "type": "number"
+        },
+        "i": {
+          "type": "number"
+        },
+        "direction": {
+          "type": "string",
+          "enum": ["Across","Down"]
+        },
+        "prompt": {
+          "type": "string"
+        },
+        "answer": {
+          "type": "string"
+        }
+      }
+    },
+    "title": {
+      "type": "string"
+    },
+    "author": {
+      "type": "string"
+    },
+    "releaseData": {
+      "type": "string"
+    }
+  }
 }
+
