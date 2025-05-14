@@ -7,7 +7,8 @@
     "body" : {
       "anyOf" : [
         { "$ref" : "fetch/fetch-response-body-schema.json" },
-        { "$ref" : "methods/methods-response-body-schema.json" }
+        { "$ref" : "methods/methods-response-body-schema.json" },
+        { "$ref" : "info/info-response-body-schema.json" }
       ]
     },
     "responseType" : {
