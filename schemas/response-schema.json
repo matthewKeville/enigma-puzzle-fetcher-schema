@@ -5,15 +5,23 @@
   "type": "object",
   "properties": {
     "body" : {
-      "anyOf" : [
+      "oneOf" : [
         { "$ref" : "fetch/fetch-response-body-schema.json" },
         { "$ref" : "methods/methods-response-body-schema.json" },
         { "$ref" : "info/info-response-body-schema.json" }
-      ]
+      ],
+      "discriminator": {
+        "propertyName": "responseType",
+        "mapping" : {
+          "fetch" : "fetch/fetch-response-body-schema.json",
+          "methods" : "methods/methods-response-body-schema.json",
+          "info" : "info/info-response-body-schema.json" 
+        }
+      }
     },
     "responseType" : {
       "type" : "string",
-      "enum" : [ "info", "methods", "fetch" ]
+      "enum" : [ "fetch", "methods", "info" ]
     },
     "success" : {
       "type" : "boolean"

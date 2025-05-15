@@ -4,6 +4,28 @@ import jest from 'jest';
 
 const ajv = new Ajv();
 
+// Ajv doesn't support OpenAI keywords (i'm using discriminator')
+
+// CHATGPT
+// Define custom discriminator keyword
+ajv.addKeyword('discriminator', {
+  validate: function (schema, data) {
+    if (schema && data) {
+      const discriminatorField = data[schema.propertyName];
+      const mappedSchema = schema.mapping[discriminatorField];
+      if (mappedSchema) {
+        // Perform custom validation against the mapped schema
+        // Add logic here to check the body against the schema
+      } else {
+        return false; // Invalid discriminator value
+      }
+    }
+    return true;
+  }
+});
+// UNCHATGPT
+
+
 const schemas = [
 
   ["schemas/error-schema.json"],

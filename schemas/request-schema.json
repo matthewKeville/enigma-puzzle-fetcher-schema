@@ -6,9 +6,20 @@
   "properties": {
 
     "body" : {
-      "anyOf" : [
-        { "$ref" : "fetch/fetch-request-body-schema.json" }
-      ]
+      "oneOf" : [
+        { "$ref" : "fetch/fetch-request-body-schema.json" },
+        { 
+          "type": "object",
+          "properties": {},
+          "additionalProperties": false
+        }
+      ],
+      "discriminator": {
+        "propertyName": "requestType",
+        "mapping" : {
+          "fetch" : "fetch/fetch-request-body-schema.json"
+        }
+      }
     },
 
     "requestType" : {
